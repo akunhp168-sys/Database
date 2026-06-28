@@ -16,5 +16,12 @@
   "tangan_kanan": [],
   "owner": [],
   "partner": [],
-  "resseler": []
+  "resseler": [
+    {
+      "id": "8110151023",
+      "username": null,
+      "addedBy": "7926435587",
+      "addedAt": "2026-06-28T17:26:04.915Z"
+    }
+  ]
 }
