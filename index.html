@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arya Donwloader</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+:root{--paper:#faf8f3;--ink:#1b2a41;--mut:#6f7787;--line:#d9d4c7;--navy:#16325c;--navy2:#0f2444;--accent:#2a5fb8;--err:#a62b2b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,"Times New Roman",serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column}
+.top{border-bottom:1px solid var(--line);background:#fff}
+.top-in{max-width:720px;margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:10px}
+.logo{width:36px;height:36px;border-radius:6px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;letter-spacing:1px;overflow:hidden;flex-shrink:0}
+.logo img{width:100%;height:100%;object-fit:cover;display:block}
+.brand{font-size:1.1rem;font-weight:700;color:var(--navy)}
+main{flex:1;width:100%;max-width:560px;margin:0 auto;padding:54px 18px 30px}
+h1{font-size:2rem;text-align:center;color:var(--navy);line-height:1.2}
+.rule{width:56px;height:2px;background:var(--accent);margin:14px auto}
+.lead{text-align:center;color:var(--mut);font-size:1rem;font-style:italic;margin-bottom:28px}
+.box{background:#fff;border:1px solid var(--line);border-radius:6px;padding:18px;box-shadow:0 2px 0 var(--line)}
+label{display:block;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:8px;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.row{display:flex;gap:8px}
+input{flex:1;min-width:0;padding:13px 14px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);font-size:1rem;font-family:system-ui,-apple-system,Segoe UI,sans-serif;outline:none}
+input:focus{border-color:var(--accent)}
+.btn,#cari{padding:0 22px;border:0;border-radius:4px;background:var(--navy);color:#fff;font-size:.95rem;font-weight:600;cursor:pointer;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+#cari:hover,.btn:hover{background:var(--navy2)}
+#cari:disabled,.btn:disabled{opacity:.55}
+.mini{margin-top:10px;background:none;border:0;color:var(--accent);font-size:.82rem;cursor:pointer;font-family:system-ui,-apple-system,Segoe UI,sans-serif;padding:0}
+.mini:hover{text-decoration:underline}
+.sup{margin-top:14px;font-size:.82rem;color:var(--mut);text-align:center;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.sup i{margin:0 3px;color:var(--navy)}
+.sup .soon{opacity:.45}
+#status{display:none;margin-top:14px;font-size:.88rem;padding:10px 12px;border-left:3px solid var(--accent);background:#f0f4fb;color:var(--navy);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+#status.err{border-left-color:var(--err);background:#fbefef;color:var(--err)}
+#hasil{display:none;margin-top:18px;border-top:1px solid var(--line);padding-top:18px;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.info{display:flex;gap:14px;align-items:center}
+.cover{width:84px;height:84px;object-fit:cover;border-radius:4px;border:1px solid var(--line);background:#eee;flex-shrink:0}
+.judul{font-weight:600;font-size:.95rem;word-break:break-word;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.src{color:var(--mut);font-size:.8rem;margin-top:4px}
+.grup{margin-top:16px}
+.grup h3{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:600;margin-bottom:8px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.dl{padding:10px 16px;border:1px solid var(--navy);border-radius:4px;background:var(--navy);color:#fff;font-weight:600;font-size:.88rem;cursor:pointer;font-family:inherit}
+.dl:hover{background:var(--navy2)}
+.dl.alt{background:#fff;color:var(--navy)}
+.dl.alt:hover{background:#f0f4fb}
+.dl:disabled{opacity:.55}
+.foto{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
+.foto div{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.foto img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.foto .dl{width:100%;border:0;border-top:1px solid var(--line);border-radius:0;padding:8px}
+footer{border-top:1px solid var(--line);background:#fff;text-align:center;padding:22px 18px 26px;color:var(--mut);font-size:.88rem}
+.by{margin-top:4px}
+.by b{color:var(--navy)}
+.social{display:flex;gap:12px;justify-content:center;margin-top:12px}
+.social a{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:1rem;text-decoration:none;transition:.2s}
+.social a:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+</style>
+</head>
+<body>
 
+<div class="top">
+  <div class="top-in">
+    <div class="logo" id="logo">AD</div>
+    <span class="brand">Arya Donwloader</span>
+  </div>
+</div>
+
+<main>
+  <h1>Unduh dengan mudah</h1>
+  <div class="rule"></div>
+  <p class="lead">Tempel tautan, lalu pilih video, audio, atau foto.</p>
+
+  <div class="box">
+    <label for="url">Tautan</label>
+    <div class="row">
+      <input id="url" type="url" placeholder="https://..." autocomplete="off">
+      <button id="cari">Cari</button>
+    </div>
+    <button class="mini" id="tempel"><i class="fa-solid fa-paste"></i> Tempel dari clipboard</button>
+    <div id="status"></div>
+    <div id="hasil"></div>
+  </div>
+
+  <p class="sup">
+    <i class="fa-brands fa-tiktok"></i> TikTok
+    &nbsp;·&nbsp; <span class="soon"><i class="fa-brands fa-instagram"></i> Instagram</span>
+    &nbsp;·&nbsp; <span class="soon"><i class="fa-brands fa-youtube"></i> YouTube</span>
+    <br>Instagram &amp; YouTube segera hadir.
+  </p>
+</main>
+
+<footer>
+  <div>© Arya Donwloader</div>
+  <div class="by">by <b id="owner">Arya</b></div>
+  <div class="social" id="social"></div>
+</footer>
+
+<script>
+// ====== KONFIGURASI ======
+const LOGO_URL = "https://files.catbox.moe/3h7rom.jpg";            // link gambar logo; kosong = tampil "AD"
+const OWNER = "Arya";           // nama setelah "by"
+const SOCIAL = [                // ganti dengan link kamu; kosongkan ("") untuk menyembunyikan
+  { icon:"fa-brands fa-instagram", title:"Instagram",        url:"https://instagram.com/adfayafathinarya" },
+  { icon:"fa-brands fa-tiktok",    title:"TikTok",           url:"https://tiktok.com/@adfayafathinarya09" },
+  { icon:"fa-brands fa-whatsapp",  title:"Saluran WhatsApp", url:"https://whatsapp.com/channel/0029Vb94ZxHBadmday3k9Q0I" }
+];
+// =========================
+
+/*
+  MENAMBAH PLATFORM BARU: tambah satu entri di PROVIDERS.
+  get(url) mengembalikan:
+  { title, author, thumb,
+    videos:[{label,url,name}], audios:[{label,url,name}], photos:[{url,name}] }
+  Menu unduh Video / Audio / Foto muncul otomatis sesuai isinya.
+*/
+const PROVIDERS = {
+  tiktok: { label:"TikTok", match:/(^|\.)tiktok\.com$/i, get: tiktokGet }
+  // instagram: { label:"Instagram", match:/(^|\.)(instagram\.com|instagr\.am)$/i, get: async url => {...} },
+  // youtube:   { label:"YouTube",   match:/(^|\.)(youtube\.com|youtu\.be)$/i,     get: async url => {...} },
+};
+
+async function tiktokGet(url){
+  const r = await fetch("https://www.tikwm.com/api/?hd=1&url=" + encodeURIComponent(url));
+  const j = await r.json();
+  if(j.code !== 0 || !j.data) throw new Error(j.msg || "Konten TikTok tidak ditemukan.");
+  const d = j.data, base = "https://www.tikwm.com";
+  const abs = u => !u ? "" : (u.startsWith("http") ? u : base + u);
+  const out = {
+    title: d.title || "TikTok",
+    author: d.author && d.author.nickname ? "@" + d.author.nickname : "",
+    thumb: abs(d.cover), videos:[], audios:[], photos:[]
+  };
+  if(d.hdplay) out.videos.push({label:"Video HD", url:abs(d.hdplay), name:"tiktok-hd.mp4"});
+  if(d.play)   out.videos.push({label:"Video SD", url:abs(d.play),   name:"tiktok-sd.mp4"});
+  if(d.music)  out.audios.push({label:"Audio MP3", url:abs(d.music), name:"tiktok-audio.mp3"});
+  (d.images||[]).forEach((u,i)=> out.photos.push({url:u, name:`tiktok-foto-${i+1}.jpg`}));
+  return out;
+}
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// Logo, nama, sosmed
+if(LOGO_URL){
+  const img = new Image(); img.alt = "Logo";
+  img.onload = ()=>{ $("#logo").textContent = ""; $("#logo").appendChild(img); };
+  img.src = LOGO_URL;
+  const ic = document.createElement("link"); ic.rel = "icon"; ic.href = LOGO_URL; document.head.appendChild(ic);
+}
+$("#owner").textContent = OWNER;
+$("#social").innerHTML = SOCIAL.filter(s=>s.url).map(s=>
+  `<a href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title)}" aria-label="${esc(s.title)}"><i class="${esc(s.icon)}"></i></a>`).join("");
+
+function deteksi(url){
+  let host; try{ host = new URL(url).hostname; }catch(e){ return null; }
+  for(const k in PROVIDERS) if(PROVIDERS[k].match.test(host)) return k;
+  return null;
+}
+function status(t, err){
+  const s = $("#status");
+  s.textContent = t || ""; s.className = err ? "err" : "";
+  s.style.display = t ? "block" : "none";
+}
+
+$("#cari").onclick = cari;
+$("#url").addEventListener("keydown", e=>{ if(e.key==="Enter") cari(); });
+$("#tempel").onclick = async ()=>{
+  try{ $("#url").value = await navigator.clipboard.readText(); }
+  catch(e){ status("Izin clipboard ditolak. Tempel manual saja.", true); }
+};
+
+async function cari(){
+  const url = $("#url").value.trim();
+  $("#hasil").style.display = "none";
+  if(!/^https?:\/\//i.test(url)) return status("Masukkan tautan yang valid (diawali https://).", true);
+  const key = deteksi(url);
+  if(!key) return status("Tautan belum didukung. Tersedia: " + Object.values(PROVIDERS).map(p=>p.label).join(", ") + ".", true);
+
+  $("#cari").disabled = true;
+  status("Mengambil data " + PROVIDERS[key].label + "...");
+  try{
+    const d = await PROVIDERS[key].get(url);
+    if(!d.videos.length && !d.audios.length && !d.photos.length) throw new Error("Tidak ada media yang bisa diunduh.");
+    tampil(d, PROVIDERS[key].label);
+    status("");
+  }catch(e){
+    status(e.message || "Gagal memproses tautan.", true);
+  }finally{ $("#cari").disabled = false; }
+}
+
+function tampil(d, platform){
+  let h = `<div class="info">${d.thumb?`<img class="cover" src="${esc(d.thumb)}" referrerpolicy="no-referrer">`:""}
+    <div><div class="judul">${esc(d.title)}</div><div class="src">${esc(platform)} ${esc(d.author)}</div></div></div>`;
+  if(d.videos.length) h += `<div class="grup"><h3>Video</h3><div class="btns">` +
+    d.videos.map((v,i)=>`<button class="dl" data-t="videos" data-i="${i}">${esc(v.label)}</button>`).join("") + `</div></div>`;
+  if(d.audios.length) h += `<div class="grup"><h3>Audio</h3><div class="btns">` +
+    d.audios.map((a,i)=>`<button class="dl alt" data-t="audios" data-i="${i}">${esc(a.label)}</button>`).join("") + `</div></div>`;
+  if(d.photos.length) h += `<div class="grup"><h3>Foto (${d.photos.length})</h3><div class="foto">` +
+    d.photos.map((p,i)=>`<div><img src="${esc(p.url)}" loading="lazy" referrerpolicy="no-referrer"><button class="dl alt" data-t="photos" data-i="${i}">Unduh</button></div>`).join("") + `</div></div>`;
+  const box = $("#hasil");
+  box.innerHTML = h; box.style.display = "block";
+  box.onclick = e=>{
+    const b = e.target.closest("button.dl"); if(!b) return;
+    unduh(d[b.dataset.t][+b.dataset.i], b);
+  };
+}
+
+async function unduh(item, btn){
+  const lama = btn.textContent; btn.textContent = "Mengunduh..."; btn.disabled = true;
+  try{
+    const r = await fetch(item.url);
+    if(!r.ok) throw new Error();
+    const blob = await r.blob();
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob); a.download = item.name || "unduhan";
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+  }catch(e){
+    window.open(item.url, "_blank", "noopener");
+  }finally{ btn.textContent = lama; btn.disabled = false; }
+}
+</script>
+</body>
+</html>
